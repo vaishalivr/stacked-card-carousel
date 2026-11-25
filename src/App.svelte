@@ -30,9 +30,11 @@
   <section class="demo-section" aria-labelledby="color-demo-title">
     {#snippet colorCard({ index }: { index: number })}
       <div class="color-card" style={`--background: ${colors[index]}`}>
-        <p class="eyebrow">CHAPTER 0{index + 1}</p>
+        <p class="eyebrow">CHAPTER {(index + 1).toString().padStart(2, '0')}</p>
         <h3>{titles[index]}</h3>
-        <span class="card-count">0{index + 1} / 07</span>
+        <span class="card-count">
+          {(index + 1).toString().padStart(2, '0')} / {titles.length.toString().padStart(2, '0')}
+        </span>
       </div>
     {/snippet}
 
@@ -43,5 +45,8 @@
       minScale={0.82}
       cardWidth="min(92%, 980px)"
     />
+    <div class="template-action">
+      <button type="button">Download Template</button>
+    </div>
   </section>
 </main>
